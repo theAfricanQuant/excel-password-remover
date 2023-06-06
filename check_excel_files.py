@@ -13,13 +13,12 @@ def unprotect_xlsx(filename, password):
         xcl.Quit()
 
     except Exception as error:
-        print("THERE WAS AN ERROR {}".format(error))
+        print(f"THERE WAS AN ERROR {error}")
 
 
 def get_xlsx_files(path=os.getcwd(), extension='xls*'):
     os.chdir(path+'\\excel_files\\')
-    result = [path+'\\excel_files\\'+i for i in glob.glob('*.{}'.format(extension))]
-    return result
+    return [path+'\\excel_files\\'+i for i in glob.glob(f'*.{extension}')]
 
 def main(password="password"):
     xlsx_files = get_xlsx_files()
